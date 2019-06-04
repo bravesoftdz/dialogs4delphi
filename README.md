@@ -1,4 +1,7 @@
 # Dialog Boxes for VCL Projects (Delphi)
+![Delphi Supported Versions](https://img.shields.io/badge/Delphi%20Supported%20Versions-XE..10.3%20Rio-blue.svg)
+![Platforms](https://img.shields.io/badge/Platforms-Win32%20and%20Win64-red.svg)
+
 This package allows you to lock and unlock the user interface in a simple way.
 
 ### Prerequisites
@@ -22,6 +25,7 @@ begin
   TDialogs.Info('Information');
 end;
 ``` 
+![dialogs-vcl](img/Screenshot_1.png)
 
 #### Error dialog box
 ```
@@ -29,6 +33,7 @@ begin
   TDialogs.Error('Error');
 end;
 ``` 
+![dialogs-vcl](img/Screenshot_3.png)
 
 #### Warning dialog box
 ```
@@ -36,6 +41,7 @@ begin
   TDialogs.Warning('Warning');
 end;
 ``` 
+![dialogs-vcl](img/Screenshot_2.png)
 
 #### Confirm dialog box
 ```
@@ -44,6 +50,7 @@ begin
     Continue;
 end;
 ``` 
+![dialogs-vcl](img/Screenshot_4.png)
 
 #### Input dialog box
 ```
@@ -53,3 +60,4 @@ begin
   Name := TDialogs.Input('Your name:', 'Default value');
 end;
 ``` 
+![dialogs-vcl](img/Screenshot_5.png)
