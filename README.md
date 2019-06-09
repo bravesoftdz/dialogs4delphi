@@ -8,15 +8,28 @@ This component is a dialog factory for Delphi projects (VCL and uniGUI). It uses
 Why use? Allows use the same code for desktop application (VCL) and web applications (uniGUI).
 
 ## Prerequisites
- * [**Boss**](https://github.com/HashLoad/boss) - Dependency Manager for Delphi
- * **VCL Projects**
+ * `[Optional]` For ease I recommend using the Boss for installation
+   * [**Boss**](https://github.com/HashLoad/boss) - Dependency Manager for Delphi
+ * For VCL projects you need
    * [**BlockUI-VCL**](https://github.com/viniciussanchez/blockui-vcl) - Block User Interface for VCL Projects (Delphi)
- * **uniGUI Projects**
+ * For uniGUI projects you need to install
    * [**uniGUI**](http://www.unigui.com/) - Web Application Framework for Embarcadero Delphi
+   * Set in *Project > Options > Delphi Compiler > Conditional defines* the compilation directive for your application:
+     * `UNIGUI_VCL` for stand alone application
+     * `UNIGUI_SERVICE` for windows service application
+     * `UNIGUI_ISAPI` for ISAPI library     
  
-### Installation 
+### Installation using Boss (dependency manager for Delphi applications)
 ```
 boss install github.com/viniciussanchez/dialogs4delphi
+```
+
+### Manual Installation
+Add the following folders to your project, in *Project > Options > Resource Compiler > Directories and Conditionals > Include file search path*
+```
+../dialogs4delphi/src
+../dialogs4delphi/src/modal
+../dialogs4delphi/src/input
 ```
 
 ### Getting Started
@@ -31,7 +44,13 @@ begin
   TDialogs.Info('Information');
 end;
 ``` 
-![dialogs-vcl](img/Screenshot_1.png)
+`[VCL]`
+
+![dialogs4delphi](img/Screenshot_1.png) 
+
+`[uniGUI]`
+
+![dialogs4delphi](img/Screenshot_uniGUI_1.png)
 
 #### Error dialog box
 ```
@@ -39,7 +58,13 @@ begin
   TDialogs.Error('Error');
 end;
 ``` 
-![dialogs-vcl](img/Screenshot_3.png)
+`[VCL]`
+
+![dialogs4delphi](img/Screenshot_3.png)
+
+`[uniGUI]`
+
+![dialogs4delphi](img/Screenshot_uniGUI_2.png)
 
 #### Warning dialog box
 ```
@@ -47,7 +72,13 @@ begin
   TDialogs.Warning('Warning');
 end;
 ``` 
-![dialogs-vcl](img/Screenshot_2.png)
+`[VCL]`
+
+![dialogs4delphi](img/Screenshot_2.png)
+
+`[uniGUI]`
+
+![dialogs4delphi](img/Screenshot_uniGUI_3.png)
 
 #### Confirm dialog box
 ```
@@ -56,7 +87,13 @@ begin
     Continue;
 end;
 ``` 
-![dialogs-vcl](img/Screenshot_4.png)
+`[VCL]`
+
+![dialogs4delphi](img/Screenshot_4.png)
+
+`[uniGUI]`
+
+![dialogs4delphi](img/Screenshot_uniGUI_4.png)
 
 #### Input dialog box
 ```
@@ -66,4 +103,10 @@ begin
   Name := TDialogs.Input('Your name:', 'Default value');
 end;
 ``` 
-![dialogs-vcl](img/Screenshot_5.png)
+`[VCL]`
+
+![dialogs4delphi](img/Screenshot_5.png)
+
+`[uniGUI]`
+
+![dialogs4delphi](img/Screenshot_uniGUI_5.png)
