@@ -22,14 +22,14 @@ type
 implementation
 
 uses
-{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI))}
+{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI) or DEFINED(UNIGUI_SERVICE))}
   UniGuiDialogs, UniGuiTypes,
 {$ELSEIF DEFINED(MSWINDOWS)}
   Vcl.Forms, Winapi.Windows, Vcl.BlockUI.Intf, Vcl.BlockUI,
 {$ENDIF}
   Vcl.Controls, System.SysUtils, Dialogs4D.Constants;
 
-{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI))}
+{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI) or DEFINED(UNIGUI_SERVICE))}
 function TDialogModalConfirm.Show(const Content: string): Boolean;
 begin
   Result := MessageDlg(Content, mtConfirmation, [mbYes, mbNo]) = mrYes;

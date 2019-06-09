@@ -25,14 +25,14 @@ type
 implementation
 
 uses
-{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI))}
+{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI) or DEFINED(UNIGUI_SERVICE))}
   UniGuiDialogs, UniGuiTypes,
 {$ELSEIF DEFINED(MSWINDOWS)}
   Vcl.Dialogs, Vcl.Forms, Vcl.BlockUI.Intf, Vcl.BlockUI,
 {$ENDIF}
   System.SysUtils, Dialogs4D.Constants;
 
-{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI))}
+{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI) or DEFINED(UNIGUI_SERVICE))}
 function TDialogInput.Show(const Description, Default: string): string;
 var
   UserValue: string;

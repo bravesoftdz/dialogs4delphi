@@ -19,14 +19,14 @@ type
 implementation
 
 uses
-{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI))}
+{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI) or DEFINED(UNIGUI_SERVICE))}
   UniGuiDialogs, UniGuiTypes,
 {$ELSEIF DEFINED(MSWINDOWS)}
   Vcl.Forms, Winapi.Windows, Vcl.BlockUI.Intf, Vcl.BlockUI,
 {$ENDIF}
   System.SysUtils, Dialogs4D.Constants;
 
-{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI))}
+{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI) or DEFINED(UNIGUI_SERVICE))}
 procedure TDialogModalWarning.Show(const Content: string);
 begin
   MessageDlg(Content, mtWarning, [mbOK]);
