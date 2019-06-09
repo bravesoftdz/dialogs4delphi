@@ -19,19 +19,19 @@ type
 implementation
 
 uses
-{$IF Defined(UNIGUI_VCL) or Defined(UNIGUI_ISAPI)}
+{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI))}
   UniGuiDialogs, UniGuiTypes,
-{$ELSEIF Defined(MSWINDOWS)}
+{$ELSEIF DEFINED(MSWINDOWS)}
   Vcl.Forms, Winapi.Windows, Vcl.BlockUI.Intf, Vcl.BlockUI,
 {$ENDIF}
-  System.SysUtils;
+  System.SysUtils, Dialogs4D.Constants;
 
-{$IF Defined(UNIGUI_VCL) or Defined(UNIGUI_ISAPI)}
+{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI))}
 procedure TDialogModalInfo.Show(const Content: string);
 begin
   MessageDlg(Content, mtInformation, [mbOK]);
 end;
-{$ELSEIF Defined(MSWINDOWS)}
+{$ELSEIF DEFINED(MSWINDOWS)}
 procedure TDialogModalInfo.Show(const Content: string);
 var
   BlockUI: IBlockUI;
@@ -42,7 +42,7 @@ end;
 {$ELSE}
 procedure TDialogModalInfo.Show(const Content: string);
 begin
-  raise Exception.Create('Not implemented');
+  raise Exception.Create(DIRECTIVE_NOT_DEFINED);
 end;
 {$ENDIF}
 

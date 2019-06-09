@@ -25,14 +25,14 @@ type
 implementation
 
 uses
-{$IF Defined(UNIGUI_VCL) or Defined(UNIGUI_ISAPI)}
+{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI))}
   UniGuiDialogs, UniGuiTypes,
-{$ELSEIF Defined(MSWINDOWS)}
+{$ELSEIF DEFINED(MSWINDOWS)}
   Vcl.Dialogs, Vcl.Forms, Vcl.BlockUI.Intf, Vcl.BlockUI,
 {$ENDIF}
-  System.SysUtils;
+  System.SysUtils, Dialogs4D.Constants;
 
-{$IF Defined(UNIGUI_VCL) or Defined(UNIGUI_ISAPI)}
+{$IF (DEFINED(UNIGUI_VCL) or DEFINED(UNIGUI_ISAPI))}
 function TDialogInput.Show(const Description, Default: string): string;
 var
   UserValue: string;
@@ -41,7 +41,7 @@ begin
   Prompt(Description, Default, mtInformation, [mbOk], UserValue, False);
   Result := UserValue;
 end;
-{$ELSEIF Defined(MSWINDOWS)}
+{$ELSEIF DEFINED(MSWINDOWS)}
 function TDialogInput.Show(const Description, Default: string): string;
 var
   BlockUI: IBlockUI;
@@ -52,7 +52,7 @@ end;
 {$ELSE}
 function TDialogInput.Show(const Description, Default: string): string;
 begin
-  raise Exception.Create('Not implemented');
+  raise Exception.Create(DIRECTIVE_NOT_DEFINED);
 end;
 {$ENDIF}
 
